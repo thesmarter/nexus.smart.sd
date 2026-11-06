@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Theme Builder — DevNexus</title>
+  <meta name="title" content="Theme Builder — DevNexus" />
+  <meta name="description" content="Design a DevNexus theme visually: colors, typography, radius, shadows, glass and layout. Export it as JSON and import it into the desktop app." />
+  <meta name="keywords" content="DevNexus theme, theme builder, design tokens, JSON theme, custom theme, PHP development environment" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DevNexus" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_AR" />
+  <meta property="og:url" content="https://nexus.smart.sd/themes/" />
+  <meta property="og:title" content="Theme Builder — DevNexus" />
+  <meta property="og:description" content="Design a DevNexus theme visually, then export it as JSON and import it in the app." />
+  <meta property="og:image" content="https://nexus.smart.sd/assets/images/og-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Theme Builder — DevNexus" />
+  <meta name="twitter:description" content="Design a DevNexus theme visually, then export it as JSON and import it in the app." />
+
+  <link rel="alternate" hreflang="en" href="https://nexus.smart.sd/themes/" />
+  <link rel="alternate" hreflang="ar" href="https://nexus.smart.sd/themes/?lang=ar" />
+  <link rel="alternate" hreflang="x-default" href="https://nexus.smart.sd/themes/" />
+  <link rel="canonical" href="https://nexus.smart.sd/themes/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DevNexus Theme Builder",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "url": "https://nexus.smart.sd/themes/",
+    "description": "A visual design-token editor for DevNexus themes: colors, typography, effects and layout, exported as an importable JSON file.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nexus.smart.sd/" },
+      { "@type": "ListItem", "position": 2, "name": "Theme Builder", "item": "https://nexus.smart.sd/themes/" }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/theme-builder.css" />
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('devnexus-theme') || 'dark';
+        var l = localStorage.getItem('devnexus-lang') || 'en';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.lang = l;
+        document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-logo">
+        <img src="/assets/images/logo-128.png" alt="DevNexus Logo" width="36" height="36" />
+        <span>DevNexus</span>
+      </a>
+
+      <ul class="navbar-links">
+        <li><a href="/" data-i18n="nav.home">Home</a></li>
+        <li><a href="/docs/" data-i18n="nav.docs">Docs</a></li>
+        <li><a href="/themes/" data-i18n="tb.nav">Theme Builder</a></li>
+        <li><a href="/founders/" data-i18n="nav.founders">Founders</a></li>
+        <li><a href="/download/" data-i18n="nav.download">Download</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <button id="langToggle" class="lang-toggle" title="Switch to Arabic">ع</button>
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme">☀️</button>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="tb-page">
+    <div class="tb-intro">
+      <h1 data-tb="title">Theme Builder</h1>
+      <p data-tb="subtitle">Design a DevNexus theme visually, then export it as JSON and import it in the app.</p>
+    </div>
+
+    <div class="tb-layout">
+      <div class="tb-controls">
+        <div class="tb-card">
+          <div class="tb-card-head"><h2 data-tb="presets">Presets</h2></div>
+          <div class="tb-card-body">
+            <div id="tbPresets" class="tb-actions-row"></div>
+          </div>
+        </div>
+
+        <div class="tb-card">
+          <div class="tb-card-body" id="tbForm"></div>
+        </div>
+      </div>
+
+      <div class="tb-aside">
+        <div class="tb-card">
+          <div class="tb-card-head">
+            <h2 data-tb="preview">Live preview</h2>
+            <div class="tb-mode-switch">
+              <button id="tbPreviewLight" type="button" data-tb="previewLight" aria-pressed="false">Light preview</button>
+              <button id="tbPreviewDark" type="button" data-tb="previewDark" aria-pressed="true">Dark preview</button>
+            </div>
+          </div>
+          <div class="tb-card-body" style="padding:0.6rem;">
+            <div id="tbPreview" class="tbp-preview"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="navbar-logo" style="margin-bottom:1rem;">
+            <img src="/assets/images/logo-128.png" alt="DevNexus Logo" width="28" height="28" />
+            <span>DevNexus</span>
+          </a>
+          <p data-i18n="footer.desc">The all-in-one local PHP/Laravel development environment manager. Built with ❤️ by smartTeam</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.product">Product</h4>
+          <ul>
+            <li><a href="/" data-i18n="footer.links.home">Home</a></li>
+            <li><a href="/docs/" data-i18n="footer.links.docs">Documentation</a></li>
+            <li><a href="/download/" data-i18n="footer.links.download">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="/founders/" data-i18n="footer.links.founders">About Us</a></li>
+            <li><a href="https://github.com/DevXNexusPro/DevNexus" target="_blank" rel="noopener" data-i18n="footer.links.github">GitHub</a></li>
+            <li><a href="https://www.smart.sd" target="_blank" rel="noopener" data-i18n="footer.links.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <ul>
+            <li><a href="/themes/" data-i18n="tb.nav">Theme Builder</a></li>
+            <li><a href="https://github.com/DevXNexusPro/DevNexus/releases" target="_blank" rel="noopener" data-i18n="footer.links.releases">Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 smartTeam. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/theme-schema.js"></script>
+  <script src="/assets/js/theme-preview.js"></script>
+  <script src="/assets/js/theme-builder.js"></script>
+</body>
+</html>

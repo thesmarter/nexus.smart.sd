@@ -1,0 +1,18 @@
+# DevNexus — GitHub Pages Configuration
+title: DevNexus
+description: Local PHP/Laravel Development Environment Manager — Free & Open Source
+url: "https://nexus.smart.sd"
+baseurl: ""
+
+# GitHub Pages settings (no theme for static HTML)
+plugins: []
+exclude:
+  - README.md
+  - node_modules
+
+# Default front matter for SEO
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og-image.png

@@ -1,0 +1,26 @@
+{
+  "name": "DevNexus — Local PHP/Laravel Development Environment",
+  "short_name": "DevNexus",
+  "description": "Free and open source local PHP/Laravel development environment manager for Linux, macOS, and Windows.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/assets/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["developer-tools", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+}

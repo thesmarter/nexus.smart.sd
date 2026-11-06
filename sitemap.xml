@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://nexus.smart.sd/</loc>
+        <lastmod>2026-08-30</lastmod>
+
+        <xhtml:link
+            rel="alternate"
+            hreflang="en"
+            href="https://nexus.smart.sd/"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="ar"
+            href="https://nexus.smart.sd/?lang=ar"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="x-default"
+            href="https://nexus.smart.sd/"
+        />
+
+        <image:image>
+            <image:loc>
+                https://nexus.smart.sd/assets/images/og-image.png
+            </image:loc>
+            <image:title>
+                DevNexus — Local PHP/Laravel Development Environment
+            </image:title>
+        </image:image>
+
+        <image:image>
+            <image:loc>
+                https://nexus.smart.sd/assets/images/screenshots/dev-dark-dashboard-page.png
+            </image:loc>
+            <image:title>DevNexus Dashboard</image:title>
+        </image:image>
+    </url>
+
+    <!-- Documentation -->
+    <url>
+        <loc>https://nexus.smart.sd/docs/</loc>
+        <lastmod>2026-08-30</lastmod>
+
+        <xhtml:link
+            rel="alternate"
+            hreflang="en"
+            href="https://nexus.smart.sd/docs/"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="ar"
+            href="https://nexus.smart.sd/docs/?lang=ar"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="x-default"
+            href="https://nexus.smart.sd/docs/"
+        />
+
+        <image:image>
+            <image:loc>
+                https://nexus.smart.sd/assets/images/og-image.png
+            </image:loc>
+            <image:title>DevNexus — Documentation</image:title>
+        </image:image>
+    </url>
+
+    <!-- Founders / About -->
+    <url>
+        <loc>https://nexus.smart.sd/founders/</loc>
+        <lastmod>2026-08-30</lastmod>
+
+        <xhtml:link
+            rel="alternate"
+            hreflang="en"
+            href="https://nexus.smart.sd/founders/"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="ar"
+            href="https://nexus.smart.sd/founders/?lang=ar"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="x-default"
+            href="https://nexus.smart.sd/founders/"
+        />
+
+        <image:image>
+            <image:loc>
+                https://nexus.smart.sd/assets/images/og-image.png
+            </image:loc>
+            <image:title>DevNexus — About Us</image:title>
+        </image:image>
+    </url>
+
+    <!-- Download -->
+    <url>
+        <loc>https://nexus.smart.sd/download/</loc>
+        <lastmod>2026-08-30</lastmod>
+
+        <xhtml:link
+            rel="alternate"
+            hreflang="en"
+            href="https://nexus.smart.sd/download/"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="ar"
+            href="https://nexus.smart.sd/download/?lang=ar"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="x-default"
+            href="https://nexus.smart.sd/download/"
+        />
+
+        <image:image>
+            <image:loc>
+                https://nexus.smart.sd/assets/images/og-image.png
+            </image:loc>
+            <image:title>Download DevNexus</image:title>
+        </image:image>
+    </url>
+    <!-- Theme Builder / Docs -->
+    <url>
+        <loc>https://nexus.smart.sd/themes/</loc>
+        <lastmod>2026-10-19</lastmod>
+
+        <xhtml:link
+            rel="alternate"
+            hreflang="en"
+            href="https://nexus.smart.sd/themes/"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="ar"
+            href="https://nexus.smart.sd/themes/?lang=ar"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="x-default"
+            href="https://nexus.smart.sd/themes/"
+        />
+
+        <image:image>
+            <image:loc>
+                https://nexus.smart.sd/assets/images/og-image.png
+            </image:loc>
+            <image:title>DevNexus — Theme Builder</image:title>
+        </image:image>
+    </url>
+
+</urlset>

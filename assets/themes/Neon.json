@@ -1,0 +1,127 @@
+{
+  "name": "Neon Terminal",
+  "description": "High-contrast cyber theme for Arch users.",
+  "version": "1.0.0",
+  "paradigm": "high-contrast",
+  "colors": {
+    "background": "#000000",
+    "foreground": "#00FF00",
+    "primary": "#00FF00",
+    "primary-foreground": "#000000",
+    "secondary": "#06B6D4",
+    "secondary-foreground": "#000000",
+    "muted": "#111827",
+    "muted-foreground": "#6B7280",
+    "accent": "#EC4899",
+    "accent-foreground": "#000000",
+    "destructive": "#FF0000",
+    "destructive-foreground": "#FFFFFF",
+    "border": "#00FF00",
+    "input": "#001100",
+    "ring": "#00FF00",
+    "card": "#000000",
+    "card-foreground": "#00FF00",
+    "popover": "#000000",
+    "popover-foreground": "#00FF00",
+    "bg-page": "#000000",
+    "bg-sidebar": "#050505",
+    "surface-1": "#000000",
+    "surface-2": "#111827",
+    "border-strong": "#00FF00",
+    "accent-blue": "#00FF00",
+    "accent-green": "#00FF00",
+    "accent-red": "#FF0000",
+    "accent-amber": "#F5A623"
+  },
+  "colorsDark": {
+    "background": "#000000",
+    "foreground": "#00FF00",
+    "primary": "#00FF00",
+    "primary-foreground": "#000000",
+    "secondary": "#06B6D4",
+    "secondary-foreground": "#000000",
+    "muted": "#111827",
+    "muted-foreground": "#6B7280",
+    "accent": "#EC4899",
+    "accent-foreground": "#000000",
+    "destructive": "#FF0000",
+    "destructive-foreground": "#FFFFFF",
+    "border": "#00FF00",
+    "input": "#001100",
+    "ring": "#00FF00",
+    "card": "#000000",
+    "card-foreground": "#00FF00",
+    "popover": "#000000",
+    "popover-foreground": "#00FF00",
+    "bg-page": "#000000",
+    "bg-sidebar": "#050505",
+    "surface-1": "#000000",
+    "surface-2": "#111827",
+    "border-strong": "#00FF00",
+    "accent-blue": "#00FF00",
+    "accent-green": "#00FF00",
+    "accent-red": "#FF0000",
+    "accent-amber": "#F5A623"
+  },
+  "typography": {
+    "family": "'JetBrains Mono', monospace",
+    "googleFont": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap",
+    "heading": {
+      "weight": 700,
+      "letterSpacing": "0px",
+      "transform": "uppercase"
+    },
+    "label": {
+      "weight": 400,
+      "letterSpacing": "0.1em",
+      "transform": "uppercase"
+    },
+    "sizes": {
+      "xs": "0.75rem",
+      "sm": "0.85rem",
+      "base": "1rem",
+      "lg": "1.1rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    }
+  },
+  "effects": {
+    "radius": "0px",
+    "radiusLg": "0px",
+    "radiusMd": "0px",
+    "radiusSm": "0px",
+    "borderWidth": "1px",
+    "shadow": "none",
+    "glassEffect": {
+      "enabled": false,
+      "blur": "0px",
+      "opacity": "1"
+    },
+    "hoverScale": "1",
+    "cardHoverScale": "1",
+    "transition": "none"
+  },
+  "layout": {
+    "sidebar": {
+      "position": "left",
+      "width": "15rem",
+      "collapsedWidth": "4.5rem"
+    },
+    "header": {
+      "position": "fixed",
+      "height": "3rem",
+      "borderBottom": true
+    },
+    "content": {
+      "maxWidth": "none",
+      "padding": "1.25rem"
+    },
+    "shell": {
+      "backgroundDecoration": false,
+      "glassPanels": false
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "name": "Aurora Flat",
+  "description": "A warm, earthy flat palette inspired by sunrise over the desert — paper canvas, vermilion action, jade accents, and mustard highlights.",
+  "version": "1.0.0",
+  "paradigm": "flat",
+  "colors": {
+    "background": "#F7F4EE",
+    "foreground": "#3A342C",
+    "primary": "#E4572E",
+    "primary-foreground": "#FFFFFF",
+    "secondary": "#0F7B6C",
+    "secondary-foreground": "#FFFFFF",
+    "muted": "#F0EAE0",
+    "muted-foreground": "#85786B",
+    "accent": "#E0A100",
+    "accent-foreground": "#3A342C",
+    "destructive": "#C93A2B",
+    "destructive-foreground": "#FFFFFF",
+    "border": "#E6DFD1",
+    "input": "#DED5C4",
+    "ring": "#E4572E",
+    "card": "#FBF8F2",
+    "card-foreground": "#3A342C",
+    "popover": "#FBF8F2",
+    "popover-foreground": "#3A342C",
+    "bg-page": "#F7F4EE",
+    "bg-sidebar": "#EFE8DC",
+    "surface-1": "#FBF8F2",
+    "surface-2": "#EFE8DC",
+    "border-strong": "#D8CDB8",
+    "accent-blue": "#E4572E",
+    "accent-green": "#0F7B6C",
+    "accent-red": "#C93A2B",
+    "accent-amber": "#E0A100"
+  },
+  "colorsDark": {
+    "background": "#1B1713",
+    "foreground": "#F7F1E8",
+    "primary": "#FF6B3D",
+    "primary-foreground": "#1B1713",
+    "secondary": "#2BB99E",
+    "secondary-foreground": "#1B1713",
+    "muted": "#2A241D",
+    "muted-foreground": "#A69A8B",
+    "accent": "#F2B705",
+    "accent-foreground": "#1B1713",
+    "destructive": "#FF6B5E",
+    "destructive-foreground": "#1B1713",
+    "border": "#3A3228",
+    "input": "#3A3228",
+    "ring": "#FF6B3D",
+    "card": "#211C17",
+    "card-foreground": "#F7F1E8",
+    "popover": "#211C17",
+    "popover-foreground": "#F7F1E8",
+    "bg-page": "#1B1713",
+    "bg-sidebar": "#16130F",
+    "surface-1": "#211C17",
+    "surface-2": "#2A241D",
+    "border-strong": "#4A4034",
+    "accent-blue": "#FF6B3D",
+    "accent-green": "#2BB99E",
+    "accent-red": "#FF6B5E",
+    "accent-amber": "#F2B705"
+  },
+  "typography": {
+    "family": "'Outfit', sans-serif",
+    "googleFont": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap",
+    "heading": {
+      "weight": 800,
+      "letterSpacing": "-0.02em",
+      "transform": "none"
+    },
+    "label": {
+      "weight": 700,
+      "letterSpacing": "0.06em",
+      "transform": "uppercase"
+    },
+    "sizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    }
+  },
+  "effects": {
+    "radius": "0.625rem",
+    "radiusLg": "0.875rem",
+    "radiusMd": "0.5rem",
+    "radiusSm": "0.25rem",
+    "borderWidth": "1px",
+    "shadow": "none",
+    "glassEffect": {
+      "enabled": false,
+      "blur": "0px",
+      "opacity": "1"
+    },
+    "hoverScale": "1",
+    "cardHoverScale": "1",
+    "transition": "all 0.2s ease-out"
+  },
+  "layout": {
+    "sidebar": {
+      "position": "left",
+      "width": "15rem",
+      "collapsedWidth": "4.5rem"
+    },
+    "header": {
+      "position": "fixed",
+      "height": "3rem",
+      "borderBottom": true
+    },
+    "content": {
+      "maxWidth": "none",
+      "padding": "1.25rem"
+    },
+    "shell": {
+      "backgroundDecoration": false,
+      "glassPanels": false
+    }
+  }
+}

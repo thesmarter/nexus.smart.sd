@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Documentation — DevNexus PHP & Laravel Dev Environment</title>
+  <meta name="title" content="Documentation — DevNexus PHP & Laravel Dev Environment" />
+  <meta name="description" content="Full DevNexus documentation: installation, PHP version management, MySQL, Caddy, Redis, Mailpit, AI/MCP server, and more — the free XAMPP & Laragon alternative." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="smartTeam" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DevNexus" />
+  <meta property="og:url" content="https://nexus.smart.sd/docs/" />
+  <meta property="og:title" content="Documentation — DevNexus PHP & Laravel Dev Environment" />
+  <meta property="og:description" content="Full DevNexus documentation: installation, PHP version management, MySQL, Caddy, Redis, Mailpit, AI/MCP server, and more." />
+  <meta property="og:image" content="https://nexus.smart.sd/assets/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="DevNexus — Local PHP/Laravel Development Environment" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@DevNexus" />
+  <meta name="twitter:title" content="Documentation — DevNexus PHP & Laravel Dev Environment" />
+  <meta name="twitter:description" content="Full DevNexus documentation: installation, PHP, MySQL, Caddy, Redis, Mailpit, and the built-in AI/MCP server." />
+  <meta name="twitter:image" content="https://nexus.smart.sd/assets/images/og-image.png" />
+
+  <link rel="alternate" hreflang="en" href="https://nexus.smart.sd/docs/" />
+  <link rel="alternate" hreflang="ar" href="https://nexus.smart.sd/docs/?lang=ar" />
+  <link rel="alternate" hreflang="x-default" href="https://nexus.smart.sd/docs/" />
+  <link rel="canonical" href="https://nexus.smart.sd/docs/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nexus.smart.sd/" },
+      { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://nexus.smart.sd/docs/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is DevNexus free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, DevNexus is completely free and open source under the MIT license."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which operating systems are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DevNexus supports Linux (deb, AppImage, RPM), macOS (Intel & Apple Silicon), and Windows (MSI)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to install PHP separately?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. DevNexus downloads and manages PHP binaries for you. You can install multiple versions and switch between them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use DevNexus with existing projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. DevNexus auto-discovers projects in your ~/www directory and supports Laravel, CakePHP, WordPress, Slim, and more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is DevNexus a good alternative to XAMPP or Laragon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. DevNexus offers everything XAMPP and Laragon provide — plus per-site PHP isolation, multiple simultaneous PHP versions, automatic HTTPS, and a built-in AI/MCP server — while remaining fully open source and cross-platform."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I run multiple PHP versions at the same time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Each site gets its own PHP-FPM pool, so one project can run PHP 8.1 while another runs PHP 8.4, simultaneously, with zero conflicts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does DevNexus work with AI coding assistants like Claude Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. DevNexus includes a built-in MCP server with 17 tools and auto-setup for Claude Code, Claude Desktop, Cursor, Windsurf, Zed, VS Code, and JetBrains IDEs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does DevNexus support Node.js projects alongside PHP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. DevNexus auto-detects Next.js, Vue, and Vite projects, manages their dev servers, and reverse-proxies them through Caddy on *.test domains with hot reload."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to install DevNexus",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Download", "text": "Download the latest release for your operating system from the GitHub Releases page." },
+      { "@type": "HowToStep", "position": 2, "name": "Run the installer", "text": "Run the installer: DMG for macOS, MSI for Windows, DEB/AppImage/RPM for Linux." },
+      { "@type": "HowToStep", "position": 3, "name": "Launch DevNexus", "text": "Launch DevNexus from your applications menu." },
+      { "@type": "HowToStep", "position": 4, "name": "Auto-detect projects", "text": "DevNexus automatically detects your ~/www directory and suggests downloading required services." }
+    ]
+  }
+  </script>
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+
+  <a href="#docs-main" class="skip-link">Skip to documentation</a>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-logo">
+        <img src="/assets/images/logo-128.png" alt="DevNexus Logo" width="36" height="36" />
+        <span>DevNexus</span>
+      </a>
+      <ul class="navbar-links">
+        <li><a href="/" data-i18n="nav.home">Home</a></li>
+        <li><a href="/docs/" data-i18n="nav.docs">Docs</a></li>
+        <li><a href="/founders/" data-i18n="nav.founders">Founders</a></li>
+        <li><a href="/download/" data-i18n="nav.download">Download</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <button id="langToggle" class="lang-toggle" title="Switch to Arabic">ع</button>
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme">☀️</button>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="docs-breadcrumb container" aria-label="Breadcrumb">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <span aria-hidden="true">/</span>
+    <span data-i18n="nav.docs">Documentation</span>
+  </nav>
+
+  <div class="docs-layout">
+    <aside class="docs-sidebar fade-in">
+      <details class="docs-sidebar-toggle" open>
+        <summary data-i18n="nav.docs">Documentation</summary>
+        <ul class="docs-nav">
+        <li><a href="#introduction" data-i18n="docs.intro.title">Introduction</a></li>
+        <li><a href="#installation" data-i18n="docs.install.title">Installation</a></li>
+        <li><a href="#getting-started" data-i18n="docs.getting-started.title">Getting Started</a></li>
+        <li><a href="#sites" data-i18n="docs.sites.title">Sites &amp; Projects</a></li>
+        <li><a href="#php" data-i18n="docs.php.title">PHP Version Management</a></li>
+        <li><a href="#mysql" data-i18n="docs.mysql.title">MySQL Database Management</a></li>
+        <li><a href="#postgres" data-i18n="docs.postgres.title">PostgreSQL</a></li>
+        <li><a href="#php-fpm" data-i18n="docs.phpfpm.title">Per-Site PHP Isolation</a></li>
+        <li><a href="#xdebug" data-i18n="docs.xdebug.title">Xdebug On-Demand</a></li>
+        <li><a href="#caddy" data-i18n="docs.caddy.title">Caddy Web Server</a></li>
+        <li><a href="#redis" data-i18n="docs.redis.title">Redis Cache</a></li>
+        <li><a href="#mailpit" data-i18n="docs.mailpit.title">Mailpit</a></li>
+        <li><a href="#mcp" data-i18n="docs.mcp.title">AI / MCP Server</a></li>
+        <li><a href="#cron" data-i18n="docs.cron.title">Job Scheduler</a></li>
+        <li><a href="#node" data-i18n="docs.node.title">Node.js Dev Servers</a></li>
+        <li><a href="#queue" data-i18n="docs.queue.title">Queue Workers</a></li>
+        <li><a href="#selfhealing" data-i18n="docs.selfhealing.title">Self-Healing</a></li>
+        <li><a href="#system" data-i18n="docs.system.title">System Integration</a></li>
+        <li><a href="#configuration" data-i18n="docs.config.title">Configuration Files</a></li>
+        <li><a href="#cli" data-i18n="docs.cli.title">CLI Reference</a></li>
+        <li><a href="#backup" data-i18n="docs.backup.title">Backup &amp; Restore</a></li>
+        <li><a href="#themes" data-i18n="docs.themes.title">Theme System</a></li>
+        <li><a href="#faq" data-i18n="docs.faq.title">FAQ</a></li>
+        </ul>
+      </details>
+    </aside>
+
+    <main class="docs-content fade-in" id="docs-main">
+      <h1 data-i18n="docs.title">Documentation</h1>
+
+      <section id="introduction">
+        <h2 data-i18n="docs.intro.title">Introduction</h2>
+        <p data-i18n="docs.intro.p1">DevNexus is a cross-platform desktop application designed to simplify local PHP and Laravel development. It manages all the services you need — PHP, MySQL, Caddy, Redis, Mailpit, and more — through a single, intuitive interface.</p>
+        <p data-i18n="docs.intro.p2">Built with Tauri v2 for a native experience, DevNexus combines the power of a Rust backend with a modern React frontend.</p>
+        <p data-i18n="docs.intro.p3">DevNexus is a free, open-source alternative to <strong>XAMPP</strong> and <strong>Laragon</strong>. Unlike XAMPP, DevNexus isolates PHP per project, supports PHP 8.0–8.4 side by side, and ships with a built-in MCP server so AI coding assistants can manage your environment directly.</p>
+        <h3 data-i18n="docs.intro.compare.title">DevNexus vs. XAMPP vs. Laragon</h3>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.intro.compare.col1">Feature</th>
+              <th>DevNexus</th>
+              <th>XAMPP</th>
+              <th>Laragon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="docs.intro.compare.r1">Multiple PHP versions side by side</td><td>✅</td><td>❌</td><td>✅</td></tr>
+            <tr><td data-i18n="docs.intro.compare.r2">Per-site PHP isolation</td><td>✅</td><td>❌</td><td>❌</td></tr>
+            <tr><td data-i18n="docs.intro.compare.r3">Cross-platform (Linux/macOS/Windows)</td><td>✅</td><td>✅</td><td data-i18n="docs.intro.compare.windowsonly">Windows only</td></tr>
+            <tr><td data-i18n="docs.intro.compare.r4">Built-in AI / MCP server</td><td>✅</td><td>❌</td><td>❌</td></tr>
+            <tr><td data-i18n="docs.intro.compare.r5">Automatic HTTPS (*.test domains)</td><td>✅</td><td data-i18n="docs.intro.compare.manual">Manual</td><td>✅</td></tr>
+            <tr><td data-i18n="docs.intro.compare.r6">Open source (MIT)</td><td>✅</td><td>✅</td><td>❌</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="installation">
+        <h2 data-i18n="docs.install.title">Installation</h2>
+        <p data-i18n="docs.install.intro">Installing DevNexus takes less than five minutes and requires no prior configuration:</p>
+        <ol>
+          <li data-i18n="docs.install.step1">Download the latest release for your operating system from the GitHub Releases page.</li>
+          <li data-i18n="docs.install.step2">Run the installer (DMG for macOS, MSI for Windows, DEB/AppImage/RPM for Linux).</li>
+          <li data-i18n="docs.install.step3">Launch DevNexus from your applications menu.</li>
+          <li data-i18n="docs.install.step4">The app will automatically detect your ~/www directory and suggest downloading required services.</li>
+        </ol>
+        <div class="note">
+          <p><strong data-i18n="docs.install.notelabel">Note:</strong> <span data-i18n="docs.install.notetext">DevNexus is compatible with Linux (x86_64, aarch64), macOS (Intel, Apple Silicon), and Windows (x86_64).</span></p>
+        </div>
+
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/download-page.png" alt="DevNexus download page" width="1280" height="800" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.download-page">Download page with installers for every platform</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.install.req.title">System Requirements</h3>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.install.req.col1">Platform</th>
+              <th data-i18n="docs.install.req.col2">Requirements</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="docs.install.req.linux">Linux (x86_64 / aarch64)</td><td data-i18n="docs.install.req.linux.val">glibc 2.28+, GTK 3, WebKit2GTK 4.1, pkexec (PolicyKit)</td></tr>
+            <tr><td data-i18n="docs.install.req.macos">macOS (Intel / Apple Silicon)</td><td data-i18n="docs.install.req.macos.val">macOS 10.15+, Xcode CLI tools</td></tr>
+            <tr><td data-i18n="docs.install.req.windows">Windows (x86_64)</td><td data-i18n="docs.install.req.windows.val">Windows 10+, WebView2</td></tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="docs.install.pkgs.title">Available Packages</h3>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.install.pkgs.col1">OS</th>
+              <th data-i18n="docs.install.pkgs.col2">Architecture</th>
+              <th data-i18n="docs.install.pkgs.col3">Package</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="docs.install.pkgs.linux1">Linux</td><td data-i18n="docs.install.pkgs.linux1.arch">x86_64</td><td data-i18n="docs.install.pkgs.linux1.ptype">.deb, .rpm, .AppImage, .pkg.tar.zst</td></tr>
+            <tr><td data-i18n="docs.install.pkgs.linux1">Linux</td><td data-i18n="docs.install.pkgs.linux2.arch">aarch64</td><td data-i18n="docs.install.pkgs.linux2.ptype">.deb, .AppImage</td></tr>
+            <tr><td data-i18n="docs.install.pkgs.macos1">macOS</td><td data-i18n="docs.install.pkgs.macos1.arch">Intel (x86_64)</td><td data-i18n="docs.install.pkgs.macos1.ptype">.dmg</td></tr>
+            <tr><td data-i18n="docs.install.pkgs.macos1">macOS</td><td data-i18n="docs.install.pkgs.macos2.arch">Apple Silicon (aarch64)</td><td data-i18n="docs.install.pkgs.macos2.ptype">.dmg</td></tr>
+            <tr><td data-i18n="docs.install.pkgs.windows1">Windows</td><td data-i18n="docs.install.pkgs.windows1.arch">x86_64</td><td data-i18n="docs.install.pkgs.windows1.ptype">.msi, .exe (NSIS)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="getting-started">
+        <h2 data-i18n="docs.getting-started.title">Getting Started</h2>
+        <p data-i18n="docs.getting-started.p1">When you first launch DevNexus, you will see the Dashboard. From here, you can:</p>
+        <ul>
+          <li data-i18n="docs.getting-started.item1">Download and install PHP, MySQL, Caddy, and other services from the Binaries page</li>
+          <li data-i18n="docs.getting-started.item2">Start/stop services from the Services page</li>
+          <li data-i18n="docs.getting-started.item3">Discover and manage your projects from the Sites page</li>
+          <li data-i18n="docs.getting-started.item4">Configure extensions and settings from the Config page</li>
+        </ul>
+
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/first-launch.png" alt="DevNexus first launch" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.first-launch">DevNexus window on first launch</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.getting-started.tools.title">Downloading Tools</h3>
+        <p data-i18n="docs.getting-started.tools.p">Before using services, you need to download the required binaries from the Binaries page:</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/binaries-page.png" alt="DevNexus Binaries page" width="1280" height="800" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.binaries-page">Binaries page where you download required tools</figcaption>
+        </figure>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.getting-started.tools.col1">Tool</th>
+              <th data-i18n="docs.getting-started.tools.col2">Purpose</th>
+              <th data-i18n="docs.getting-started.tools.col3">Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>PHP</strong></td><td data-i18n="docs.getting-started.tools.php">PHP runtime (choose a version)</td><td data-i18n="docs.getting-started.tools.yes">Yes</td></tr>
+            <tr><td><strong>MySQL</strong></td><td data-i18n="docs.getting-started.tools.mysql">Database server</td><td data-i18n="docs.getting-started.tools.optional">Optional</td></tr>
+            <tr><td><strong>Caddy</strong></td><td data-i18n="docs.getting-started.tools.caddy">Web server with auto-TLS</td><td data-i18n="docs.getting-started.tools.yes">Yes</td></tr>
+            <tr><td><strong>Redis</strong></td><td data-i18n="docs.getting-started.tools.redis">Cache / queue backend</td><td data-i18n="docs.getting-started.tools.optional">Optional</td></tr>
+            <tr><td><strong>Mailpit</strong></td><td data-i18n="docs.getting-started.tools.mailpit">Local email testing</td><td data-i18n="docs.getting-started.tools.optional">Optional</td></tr>
+            <tr><td><strong>PostgreSQL</strong></td><td data-i18n="docs.getting-started.tools.postgres">Alternative database</td><td data-i18n="docs.getting-started.tools.optional">Optional</td></tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="docs.getting-started.services.title">Starting Services</h3>
+        <p data-i18n="docs.getting-started.services.p">Once binaries are downloaded, go to the Services page. Click <strong>Start All</strong> or toggle individual services — DevNexus starts each service on its default port, resolves port conflicts automatically, and updates the Dashboard in real time.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/services-page.png" alt="DevNexus Services page" width="1280" height="800" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.services-page">Services page with running services</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.getting-started.firstproject.title">Creating Your First Project</h3>
+        <p data-i18n="docs.getting-started.firstproject.p">Go to <strong>Sites → Create Site</strong>, enter a project name, and select a type (e.g. Laravel). DevNexus scaffolds the project, configures its environment, and serves it at <code>https://&lt;name&gt;.test</code> with automatic TLS.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/create-site.png" alt="Create a new site in DevNexus" width="1280" height="800" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.create-site">Creating a new site</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.getting-started.verify.title">Verifying Everything Works</h3>
+        <p data-i18n="docs.getting-started.verify.p">Open the Dashboard to verify your environment is ready:</p>
+        <ul>
+          <li data-i18n="docs.getting-started.verify.item1">Services are running</li>
+          <li data-i18n="docs.getting-started.verify.item2">Sites are discovered and active</li>
+          <li data-i18n="docs.getting-started.verify.item3">PHP version is configured</li>
+          <li data-i18n="docs.getting-started.verify.item4">Domains resolve (.test entries in /etc/hosts)</li>
+        </ul>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/dashboard-verified.png" alt="DevNexus Dashboard with everything running" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.dashboard-verified">Dashboard with everything running</figcaption>
+        </figure>
+      </section>
+
+      <section id="sites">
+        <h2 data-i18n="docs.sites.title">Sites &amp; Projects</h2>
+        <p data-i18n="docs.sites.p1">DevNexus automatically discovers, configures, and manages your local web projects. Each project gets a <code>.test</code> domain, an automatic TLS certificate, an <code>/etc/hosts</code> entry, a Caddy vhost, and a per-site PHP version.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/sites-overview.png" alt="DevNexus Sites page" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.sites-overview">Sites page with your project list</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.sites.discovery.title">Project Discovery</h3>
+        <p data-i18n="docs.sites.discovery.p">DevNexus auto-detects project types by scanning for signature files:</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/project-detection.png" alt="Project type detection in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.project-detection">Project type detection in action</figcaption>
+        </figure>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.sites.discovery.col1">Project Type</th>
+              <th data-i18n="docs.sites.discovery.col2">Detection Signal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="docs.sites.discovery.laravel">Laravel</td><td data-i18n="docs.sites.discovery.laravel.sig">artisan file present</td></tr>
+            <tr><td data-i18n="docs.sites.discovery.wordpress">WordPress</td><td data-i18n="docs.sites.discovery.wordpress.sig">wp-settings.php present</td></tr>
+            <tr><td data-i18n="docs.sites.discovery.cakephp">CakePHP</td><td data-i18n="docs.sites.discovery.cakephp.sig">bin/cake present</td></tr>
+            <tr><td data-i18n="docs.sites.discovery.slim">Slim</td><td data-i18n="docs.sites.discovery.slim.sig">slim in composer.json</td></tr>
+            <tr><td data-i18n="docs.sites.discovery.generic">Generic PHP</td><td data-i18n="docs.sites.discovery.generic.sig">composer.json or index.php</td></tr>
+            <tr><td data-i18n="docs.sites.discovery.static">Static</td><td data-i18n="docs.sites.discovery.static.sig">HTML files, no PHP framework</td></tr>
+            <tr><td data-i18n="docs.sites.discovery.node">Node.js</td><td data-i18n="docs.sites.discovery.node.sig">package.json with framework detection</td></tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="docs.sites.create.title">Creating a New Project</h3>
+        <p data-i18n="docs.sites.create.p">Go to <strong>Sites → Create Site</strong>, enter a project name, and select a type. DevNexus scaffolds the project, configures the <code>.env</code> file with database credentials and <code>APP_URL</code>, creates a Caddy vhost entry, adds the <code>.test</code> domain to <code>/etc/hosts</code>, and generates an SSL certificate.</p>
+        <p data-i18n="docs.sites.create.cli">From the CLI:</p>
+        <pre><code>devnexus create-site --name my-app --type laravel</code></pre>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/create-new-site.png" alt="Create site form in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.create-new-site">Create site form</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.sites.link.title">Linking Existing Projects</h3>
+        <p data-i18n="docs.sites.link.p">To link projects that live outside <code>~/www</code>, go to <strong>Sites → Link Project</strong>, browse to the project folder, and DevNexus auto-detects the type and configures it. The project becomes available at <code>https://&lt;folder-name&gt;.test</code>.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/link-project.png" alt="Link project dialog in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.link-project">Link project dialog</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.sites.config.title">Per-Site Configuration</h3>
+        <p data-i18n="docs.sites.config.p">Each project can have a <code>.devnexus.json</code> file in its root to override defaults:</p>
+        <pre><code>{
+  "type": "laravel",
+  "domain": "custom-domain.test",
+  "php_version": "8.3",
+  "document_root": "public",
+  "node_port": 3000
+}</code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.sites.config.col1">Field</th>
+              <th data-i18n="docs.sites.config.col2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>type</code></td><td data-i18n="docs.sites.config.type">Override auto-detected project type</td></tr>
+            <tr><td><code>domain</code></td><td data-i18n="docs.sites.config.domain">Custom .test domain (default: folder name)</td></tr>
+            <tr><td><code>php_version</code></td><td data-i18n="docs.sites.config.php_version">PHP version for this site (overrides global)</td></tr>
+            <tr><td><code>document_root</code></td><td data-i18n="docs.sites.config.document_root">Subdirectory for web root (default: project root)</td></tr>
+            <tr><td><code>node_port</code></td><td data-i18n="docs.sites.config.node_port">Fixed dev server port for Node.js projects</td></tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="docs.sites.run.title">Run Artisan / Composer</h3>
+        <p data-i18n="docs.sites.run.p">Execute Laravel Artisan or Composer commands from the GUI or MCP — for example <code>php artisan migrate</code>, <code>php artisan queue:work</code>, or <code>composer require spatie/laravel-permission</code>.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/run-artisan.png" alt="Running artisan and composer commands in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.run-artisan">Running artisan / composer commands</figcaption>
+        </figure>
+      </section>
+
+      <section id="php">
+        <h2 data-i18n="docs.php.title">PHP Version Management</h2>
+        <p data-i18n="docs.php.p1">DevNexus supports PHP versions 8.0 through 8.4. Binaries are downloaded from static-php.dev, pre-compiled for your platform.</p>
+        <p data-i18n="docs.php.p2">You can enable/disable extensions with a single click, and the app automatically generates optimized php.ini files.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/php-versions.png" alt="PHP version manager in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.php-versions">PHP version manager</figcaption>
+        </figure>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/php-extensions.png" alt="PHP extensions with toggles" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.php-extensions">PHP extensions with toggles</figcaption>
+        </figure>
+        <pre><code># Example: Switch PHP version
+# DevNexus handles this through the UI
+# Binary locations are added to PATH automatically</code></pre>
+      </section>
+
+      <section id="mysql">
+        <h2 data-i18n="docs.mysql.title">MySQL Database Management</h2>
+        <p data-i18n="docs.mysql.p1">DevNexus downloads official MySQL Community Server binaries and initializes the data directory automatically.</p>
+        <p data-i18n="docs.mysql.p2">For database administration, DevNexus integrates phpMyAdmin and Adminer, both served locally through Caddy at phpmyadmin.test and adminer.test.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/mysql-service.png" alt="MySQL service in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.mysql-service">MySQL service detail</figcaption>
+        </figure>
+      </section>
+
+      <section id="postgres">
+        <h2 data-i18n="docs.postgres.title">PostgreSQL</h2>
+        <p data-i18n="docs.postgres.p1">PostgreSQL is available as an optional alternative database, managed as a binary tool and downloadable from the Binaries page.</p>
+        <p data-i18n="docs.postgres.p2"><strong>Default port:</strong> 5432 · <strong>Config file:</strong> dev-stack/config/postgresql.conf</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/postgresql-service.png" alt="PostgreSQL service in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.postgresql-service">PostgreSQL service detail</figcaption>
+        </figure>
+      </section>
+
+      <section id="php-fpm">
+        <h2 data-i18n="docs.phpfpm.title">Per-Site PHP Isolation</h2>
+        <p data-i18n="docs.phpfpm.p1">DevNexus creates a separate PHP-FPM pool for each site, ensuring complete isolation. Each project uses its own PHP version, extensions, and configuration without conflicts.</p>
+        <p data-i18n="docs.phpfpm.p2">On Unix systems, each site gets its own FPM pool with a dedicated Unix socket. On Windows, DevNexus uses separate PHP built-in servers per site.</p>
+        <p data-i18n="docs.phpfpm.how">The PHP version for each site is detected from: 1) <code>.devnexus.json</code> config, 2) <code>.php-version</code> file, 3) composer.json requirements, or 4) the global default.</p>
+        <pre><code>{
+  "phpVersion": "8.2",
+  "xdebug": true
+}</code></pre>
+      </section>
+
+      <section id="xdebug">
+        <h2 data-i18n="docs.xdebug.title">Xdebug On-Demand</h2>
+        <p data-i18n="docs.xdebug.p1">DevNexus supports Xdebug with a "trigger on demand" approach. When enabled for a site, Xdebug loads but stays in <code>xdebug.mode=off</code> until you send a debug trigger cookie or header.</p>
+        <p data-i18n="docs.xdebug.p2">This means zero performance overhead during normal development, but full debugging is available whenever you need it. Xdebug listens on port 9003 by default.</p>
+        <p data-i18n="docs.xdebug.how">To enable: set <code>"xdebug": true</code> in your site's <code>.devnexus.json</code> configuration. DevNexus auto-locates the Xdebug extension binary for your PHP version.</p>
+      </section>
+
+      <section id="caddy">
+        <h2 data-i18n="docs.caddy.title">Caddy Web Server</h2>
+        <p data-i18n="docs.caddy.p1">Caddy is configured automatically with PHP-FPM FastCGI support. Each project gets its own *.test domain with automatic TLS certificates.</p>
+        <p data-i18n="docs.caddy.p2">The configuration reloads automatically when files change in your projects directory.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/caddy-service.png" alt="Caddy service in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.caddy-service">Caddy service detail</figcaption>
+        </figure>
+      </section>
+
+      <section id="redis">
+        <h2 data-i18n="docs.redis.title">Redis Cache</h2>
+        <p data-i18n="docs.redis.p1">DevNexus provides one-click Redis server management for caching and session storage. Simply click start on the Redis service card and it runs on the default port 6379.</p>
+        <p data-i18n="docs.redis.p2">No configuration needed — Redis starts with optimized defaults for local development.</p>
+        <p data-i18n="docs.redis.p3">Redis is commonly used in Laravel projects for three things: <strong data-i18n="docs.redis.use1">application cache</strong>, <strong data-i18n="docs.redis.use2">session storage</strong>, and <strong data-i18n="docs.redis.use3">queue driver</strong> for background jobs. Point your <code>.env</code> at the local instance and it works exactly like production Redis.</p>
+        <pre><code>REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+QUEUE_CONNECTION=redis</code></pre>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/redis-service.png" alt="Redis service in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.redis-service">Redis service detail</figcaption>
+        </figure>
+      </section>
+
+      <section id="mailpit">
+        <h2 data-i18n="docs.mailpit.title">Mailpit — Email Testing</h2>
+        <p data-i18n="docs.mailpit.p1">Mailpit is an SMTP testing tool integrated into DevNexus. It captures all outgoing emails from your applications and provides a web UI to view them.</p>
+        <p data-i18n="docs.mailpit.p2">SMTP Server: localhost:1025 — Web UI: http://localhost:8025</p>
+        <p data-i18n="docs.mailpit.p3">No more emails accidentally sent to real addresses during development. Mailpit catches them all.</p>
+        <p data-i18n="docs.mailpit.p4">For Laravel, point your mail configuration at Mailpit and every notification, password reset, and queued email is caught locally and viewable in the browser instead of leaving your machine.</p>
+        <pre><code>MAIL_MAILER=smtp
+MAIL_HOST=127.0.0.1
+MAIL_PORT=1025
+MAIL_ENCRYPTION=null</code></pre>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/mailpit-service.png" alt="Mailpit email testing service in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.mailpit-service">Mailpit inbox at localhost:8025</figcaption>
+        </figure>
+      </section>
+
+      <section id="mcp">
+        <h2 data-i18n="docs.mcp.title">AI / MCP Server</h2>
+        <p data-i18n="docs.mcp.p1">DevNexus includes a built-in MCP (Model Context Protocol) server that exposes 17 tools for AI assistants to control your development environment. The server runs locally on <code>127.0.6.0:8938</code> with Bearer token authentication.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/mcp-architecture.png" alt="MCP server architecture" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.mcp-architecture">AI assistant ↔ MCP server ↔ DevNexus</figcaption>
+        </figure>
+        <p data-i18n="docs.mcp.p2"><strong>Supported AI Clients (auto-setup):</strong> Claude Code, Claude Desktop, Cursor, Windsurf, Zed, OpenCode, VS Code, and JetBrains/Junie.</p>
+        <p data-i18n="docs.mcp.p3">Enable the MCP server from Settings. DevNexus can auto-configure all supported AI clients with a single click via the "Setup AI Clients" button.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/mcp-settings.png" alt="MCP server settings page" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.mcp-settings">Settings page with MCP toggle</figcaption>
+        </figure>
+        <h3>Available MCP Tools</h3>
+        <ul>
+          <li><code>list_services</code>, <code>get_service_status</code>, <code>start_service</code>, <code>stop_service</code>, <code>restart_service</code>, <code>service_logs</code></li>
+          <li><code>list_sites</code>, <code>open_project_folder</code>, <code>open_in_browser</code>, <code>get_site_config</code></li>
+          <li><code>run_artisan</code>, <code>run_composer</code></li>
+          <li><code>git_status</code></li>
+          <li><code>list_databases</code>, <code>create_database</code>, <code>export_database</code>, <code>backup_database</code></li>
+          <li><code>create_full_backup</code>, <code>create_projects_backup</code>, <code>list_backups</code></li>
+          <li><code>get_dashboard_stats</code>, <code>get_php_version</code>, <code>list_php_extensions</code></li>
+        </ul>
+        <p data-i18n="docs.mcp.p4">DevNexus also installs a "DevNexus Skill" file for Claude Code with example commands and workflows.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/ai-client-setup.png" alt="AI client setup results" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.ai-client-setup">AI client setup results</figcaption>
+        </figure>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/agent-skill.png" alt="DevNexus agent skill installation" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.agent-skill">Agent skill installation confirmation</figcaption>
+        </figure>
+      </section>
+
+      <section id="cron">
+        <h2 data-i18n="docs.cron.title">Job Scheduler</h2>
+        <p data-i18n="docs.cron.p1">DevNexus includes a built-in cron/job manager that runs scheduled tasks in the background. Schedule any command — artisan tasks, backup scripts, maintenance routines — with minute-to-monthly intervals.</p>
+        <p data-i18n="docs.cron.p2">Each job runs in the background with full logging. You can view run history, clear logs, and trigger any job immediately with the "Run Now" button.</p>
+        <h3>Supported Intervals</h3>
+        <ul>
+          <li><strong>Minute</strong> — runs every minute</li>
+          <li><strong>Hourly</strong> — runs once per hour</li>
+          <li><strong>Daily</strong> — runs once per day (configurable time)</li>
+          <li><strong>Weekly</strong> — runs once per week</li>
+          <li><strong>Monthly</strong> — runs once per month</li>
+        </ul>
+      </section>
+
+      <section id="node">
+        <h2 data-i18n="docs.node.title">Node.js Dev Servers</h2>
+        <p data-i18n="docs.node.p1">DevNexus auto-detects Node.js projects (Next.js, Vue, Vite, Express) and manages their development servers. Each site gets a dedicated dev server with a Caddy reverse proxy on a <code>*.test</code> domain.</p>
+        <p data-i18n="docs.node.p2"><strong>Package Manager Detection:</strong> DevNexus detects npm, yarn, pnpm, or bun from lockfiles and uses the correct command automatically.</p>
+        <p data-i18n="docs.node.p3"><strong>NVM Integration:</strong> Per-project <code>.nvmrc</code> support — DevNexus reads your Node version file and uses the correct version via NVM.</p>
+        <p data-i18n="docs.node.p4">Dev ports are automatically assigned (11000–11999) or configurable per site. The reverse proxy is managed by Caddy with automatic HTTPS.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/nodejs-service.png" alt="Node.js dev server status in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.nodejs-service">Node.js dev server status</figcaption>
+        </figure>
+      </section>
+
+      <section id="queue">
+        <h2 data-i18n="docs.queue.title">Queue Workers</h2>
+        <p data-i18n="docs.queue.p1">DevNexus manages Laravel queue workers per site. Start, stop, and monitor <code>php artisan queue:work</code> processes for each project independently.</p>
+        <p data-i18n="docs.queue.p2">Each worker is tracked by PID with full lifecycle management. View running workers and their status from the queue workers panel.</p>
+      </section>
+
+      <section id="selfhealing">
+        <h2 data-i18n="docs.selfhealing.title">Self-Healing Diagnostics</h2>
+        <p data-i18n="docs.selfhealing.p1">DevNexus automatically detects common service issues and provides one-click fixes:</p>
+        <ul>
+          <li><strong data-i18n="docs.selfhealing.f1">Stale PIDs</strong> — detects and cleans processes that are no longer running</li>
+          <li><strong data-i18n="docs.selfhealing.f2">Port Conflicts</strong> — identifies ports in use by other processes</li>
+          <li><strong data-i18n="docs.selfhealing.f3">Corrupt Configs</strong> — regenerates broken Caddyfiles and PHP-FPM configs</li>
+          <li><strong data-i18n="docs.selfhealing.f4">Stopped Services</strong> — restarts services that should be running</li>
+        </ul>
+        <p data-i18n="docs.selfhealing.p2">Run a full diagnostic scan from Settings → Health to see all issues. Fix individual issues or click "Fix All" to resolve everything at once.</p>
+      </section>
+
+      <section id="system">
+        <h2 data-i18n="docs.system.title">System Integration</h2>
+        <p data-i18n="docs.system.p1">DevNexus integrates deeply with your operating system to provide a seamless development experience.</p>
+        <ul>
+          <li><strong data-i18n="docs.system.path">PATH Injection</strong> — All binary directories are automatically added to your PATH.</li>
+          <li><strong data-i18n="docs.system.hosts">/etc/hosts Management</strong> — Each project gets a *.test domain with automatic privilege escalation.</li>
+          <li><strong data-i18n="docs.system.ssl">SSL Trust</strong> — Caddy Root CA is injected into your system certificate store for trusted local HTTPS.</li>
+          <li><strong data-i18n="docs.system.watcher">File Watcher</strong> — Automatically reloads Caddy configuration when files change.</li>
+        </ul>
+      </section>
+
+      <section id="configuration">
+        <h2 data-i18n="docs.config.title">Configuration Files</h2>
+        <p data-i18n="docs.config.p1">DevNexus uses XDG-compliant paths so all managed files live in a predictable, platform-specific data directory.</p>
+
+        <h3 data-i18n="docs.config.datadir.title">Data Directory</h3>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.config.datadir.col1">Platform</th>
+              <th data-i18n="docs.config.datadir.col2">Path</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="docs.config.datadir.linux">Linux</td><td><code>~/.local/share/dev-stack/</code></td></tr>
+            <tr><td data-i18n="docs.config.datadir.macos">macOS</td><td><code>~/Library/Application Support/dev-stack/</code></td></tr>
+            <tr><td data-i18n="docs.config.datadir.windows">Windows</td><td><code>%APPDATA%/dev-stack/</code></td></tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="docs.config.dirs.title">Directory Layout</h3>
+        <pre><code>dev-stack/
+├── bin/                     # Tool binaries (php, mysql, caddy, redis, ...)
+├── config/                  # Caddyfile, my.cnf, php/, redis.conf, ...
+├── data/                    # Runtime data (mysql/, redis/)
+├── logs/                    # Service logs
+├── tmp/                     # PID files
+├── downloads/               # Download cache
+├── backups/                 # Backup archives
+├── app_config.json          # Main application config
+└── mcp_config.json          # MCP server settings</code></pre>
+
+        <h3><code>app_config.json</code></h3>
+        <p data-i18n="docs.config.app.p">Main application configuration:</p>
+        <pre><code>{
+  "php_version": "8.3.4",
+  "auto_start_services": true,
+  "default_site_type": "laravel",
+  "theme": "dark"
+}</code></pre>
+
+        <h3><code>mcp_config.json</code></h3>
+        <p data-i18n="docs.config.mcp.p">MCP server settings:</p>
+        <pre><code>{
+  "enabled": false,
+  "port": 8938,
+  "token": "devnexus-xxxxxxxxxxxx"
+}</code></pre>
+      </section>
+
+      <section id="cli">
+        <h2 data-i18n="docs.cli.title">CLI Reference</h2>
+        <p data-i18n="docs.cli.p1">DevNexus ships with a standalone command-line interface (<code>devnexus-cli</code>) for managing your development environment without the GUI. It shares the same business logic as the app — no duplication.</p>
+        <p data-i18n="docs.cli.install.p">The CLI is bundled with DevNexus: on Linux/macOS it is available on PATH as <code>devnexus</code>; on Windows as <code>devnexus.exe</code> in the installation directory.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/cli-usage.png" alt="devnexus status command in the terminal" width="1280" height="800" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.cli-usage">Running devnexus status in the terminal</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.cli.commands.title">Common Commands</h3>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.cli.commands.col1">Command</th>
+              <th data-i18n="docs.cli.commands.col2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>devnexus status</code></td><td data-i18n="docs.cli.commands.status">Show the status of all managed services</td></tr>
+            <tr><td><code>devnexus start &lt;service&gt;</code></td><td data-i18n="docs.cli.commands.start">Start a background service (caddy, mysql, postgres, redis, mailpit, phpfpm)</td></tr>
+            <tr><td><code>devnexus stop &lt;service&gt;</code></td><td data-i18n="docs.cli.commands.stop">Stop a running service</td></tr>
+            <tr><td><code>devnexus restart &lt;service&gt;</code></td><td data-i18n="docs.cli.commands.restart">Stop then start a service</td></tr>
+            <tr><td><code>devnexus start-all</code></td><td data-i18n="docs.cli.commands.startall">Start all managed services sequentially</td></tr>
+            <tr><td><code>devnexus stop-all</code></td><td data-i18n="docs.cli.commands.stopall">Stop all managed services</td></tr>
+            <tr><td><code>devnexus list-sites</code></td><td data-i18n="docs.cli.commands.listsites">List all discovered project sites</td></tr>
+            <tr><td><code>devnexus create-site</code></td><td data-i18n="docs.cli.commands.createsite">Create a new project (--name, --type)</td></tr>
+            <tr><td><code>devnexus backup &lt;full|projects|config|list&gt;</code></td><td data-i18n="docs.cli.commands.backup">Create a full, projects-only, or config-only backup; list backups</td></tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="docs.cli.example.title">Examples</h3>
+        <pre><code># Start everything and verify
+devnexus start-all && devnexus status
+
+# Daily backup cron job
+0 2 * * * /usr/local/bin/devnexus backup full</code></pre>
+      </section>
+
+      <section id="backup">
+        <h2 data-i18n="docs.backup.title">Backup &amp; Restore</h2>
+        <p data-i18n="docs.backup.p1">DevNexus provides built-in backup and restore capabilities for your entire development environment.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/backup-page.png" alt="Backup management page in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.backup-page">Backup management page</figcaption>
+        </figure>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="docs.backup.types.col1">Backup Type</th>
+              <th data-i18n="docs.backup.types.col2">Contents</th>
+              <th data-i18n="docs.backup.types.col3">Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="docs.backup.types.full">Full</td><td data-i18n="docs.backup.types.full.contents">Projects + Config</td><td data-i18n="docs.backup.types.full.use">Complete environment backup</td></tr>
+            <tr><td data-i18n="docs.backup.types.projects">Projects</td><td data-i18n="docs.backup.types.projects.contents">Project files only</td><td data-i18n="docs.backup.types.projects.use">Source code backup</td></tr>
+            <tr><td data-i18n="docs.backup.types.config">Config</td><td data-i18n="docs.backup.types.config.contents">Configuration files only</td><td data-i18n="docs.backup.types.config.use">Settings backup</td></tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="docs.backup.create.title">Creating Backups</h3>
+        <p data-i18n="docs.backup.create.p">From the GUI: open the Backup page, choose the type (Full, Projects, or Config), and click Create Backup. From the CLI:</p>
+        <pre><code>devnexus backup full
+devnexus backup projects
+devnexus backup config
+devnexus backup list</code></pre>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/create-backup.png" alt="Creating a new backup in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.create-backup">Creating a new backup</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.backup.schedule.title">Scheduled Backups</h3>
+        <p data-i18n="docs.backup.schedule.p">Automate backups daily, weekly, or monthly from Backup → Schedule, or through the built-in job scheduler.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/scheduled-backups.png" alt="Backup scheduling configuration in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.scheduled-backups">Backup scheduling configuration</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.backup.restore.title">Restore</h3>
+        <p data-i18n="docs.backup.restore.p">Select a backup from the list and click Restore. During restore, the current configuration is backed up as a safety net, the selected archive is extracted, services restart with the new config, and the hosts file is re-synchronized.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/restore-backup.png" alt="Restore confirmation in DevNexus" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.restore-backup">Restore confirmation</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.backup.best.title">Best Practices</h3>
+        <ul>
+          <li data-i18n="docs.backup.best.item1">Schedule daily backups for active projects</li>
+          <li data-i18n="docs.backup.best.item2">Create a full backup before upgrading PHP or MySQL versions</li>
+          <li data-i18n="docs.backup.best.item3">Keep important backups on external storage</li>
+          <li data-i18n="docs.backup.best.item4">Periodically verify backups can be restored</li>
+        </ul>
+      </section>
+
+      <section id="themes">
+        <h2 data-i18n="docs.themes.title">Theme System</h2>
+        <p data-i18n="docs.themes.p1">DevNexus ships with five built-in themes and a complete JSON theme format: colors, typography, effects and layout are all driven by design tokens.</p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/themes-page.png" alt="Themes page in DevNexus listing the five built-in themes, the text size slider and the theme import actions" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.themes-page">The Themes page — pick a built-in theme, adjust text size, import your own</figcaption>
+        </figure>
+        <ul>
+          <li data-i18n="docs.themes.flat"><strong>Flat UI</strong> — Clean, zero-depth default theme</li>
+          <li data-i18n="docs.themes.aurora"><strong>Aurora Flat</strong> — Warm earthy palette with vermilion and jade accents</li>
+          <li data-i18n="docs.themes.neon"><strong>Neon Terminal</strong> — Dark, high-contrast cyberpunk theme</li>
+          <li data-i18n="docs.themes.macos"><strong>macOS</strong> — SF Pro typography, translucent chrome, layered shadows</li>
+          <li data-i18n="docs.themes.windows"><strong>Windows</strong> — Fluent 2 with acrylic surfaces and a 4px radius</li>
+        </ul>
+
+        <h3 data-i18n="docs.themes.builder.title">Visual Theme Builder</h3>
+        <p data-i18n="docs.themes.builder.p">Design a theme in your browser with a live preview, then download the JSON and import it into DevNexus.</p>
+        <p><a href="/themes/" data-i18n="docs.themes.builder.cta">Open the Theme Builder</a></p>
+        <figure class="docs-figure fade-in">
+          <img src="/docs/images/theme-builder.png" alt="The DevNexus Theme Builder website with preset themes, the editing form and a live app preview" width="1920" height="1020" loading="lazy" decoding="async" />
+          <figcaption data-i18n="docs.img.theme-builder">The online Theme Builder — presets, live preview and JSON export</figcaption>
+        </figure>
+
+        <h3 data-i18n="docs.themes.customize.title">What you can customize</h3>
+        <ul>
+          <li data-i18n="docs.themes.tokens"><strong>Colors</strong> — Full light and dark palettes plus semantic status tokens</li>
+          <li data-i18n="docs.themes.typography"><strong>Typography</strong> — Font family, heading and label styles, and a 9-step size scale</li>
+          <li data-i18n="docs.themes.effects"><strong>Effects</strong> — Radius, border width, shadow presets, glass blur and hover motion</li>
+          <li data-i18n="docs.themes.layout"><strong>Layout</strong> — Sidebar position (left/top/hidden), header, content width and padding</li>
+          <li data-i18n="docs.themes.custom"><strong>Import / Export</strong> — Themes are plain JSON files, validated on import</li>
+        </ul>
+
+        <h3 data-i18n="docs.themes.gallery.title">Themes in action</h3>
+        <p data-i18n="docs.themes.gallery.p">The same interface under two native-inspired themes — every surface, radius and shadow comes from the theme JSON.</p>
+        <div class="docs-figure-row">
+          <figure class="docs-figure fade-in">
+            <img src="/docs/images/theme-macos.png" alt="DevNexus Themes page rendered with the macOS theme: SF Pro typography, translucent chrome and layered shadows" width="1920" height="1020" loading="lazy" decoding="async" />
+            <figcaption data-i18n="docs.img.theme-macos">macOS theme applied</figcaption>
+          </figure>
+          <figure class="docs-figure fade-in">
+            <img src="/docs/images/theme-windows.png" alt="DevNexus Themes page rendered with the Windows theme: Segoe UI typography, acrylic surfaces and 4px radii" width="1920" height="1020" loading="lazy" decoding="async" />
+            <figcaption data-i18n="docs.img.theme-windows">Windows theme applied</figcaption>
+          </figure>
+        </div>
+
+        <p data-i18n="docs.themes.p2">Toggle dark and light mode, adjust the global text size, or create your own theme and share it with the community.</p>
+      </section>
+
+      <section id="faq">
+        <h2 data-i18n="docs.faq.title">Frequently Asked Questions</h2>
+
+        <h3 data-i18n="docs.faq.q1">Is DevNexus free?</h3>
+        <p data-i18n="docs.faq.a1">Yes, DevNexus is completely free and open source under the MIT license.</p>
+
+        <h3 data-i18n="docs.faq.q2">Which operating systems are supported?</h3>
+        <p data-i18n="docs.faq.a2">DevNexus supports Linux (deb, AppImage, RPM), macOS (Intel & Apple Silicon), and Windows (MSI).</p>
+
+        <h3 data-i18n="docs.faq.q3">Do I need to install PHP separately?</h3>
+        <p data-i18n="docs.faq.a3">No. DevNexus downloads and manages PHP binaries for you. You can install multiple versions and switch between them.</p>
+
+        <h3 data-i18n="docs.faq.q4">Can I use DevNexus with existing projects?</h3>
+        <p data-i18n="docs.faq.a4">Absolutely. DevNexus auto-discovers projects in your ~/www directory and supports Laravel, CakePHP, WordPress, Slim, and more.</p>
+
+        <h3 data-i18n="docs.faq.q5">Is DevNexus a good alternative to XAMPP or Laragon?</h3>
+        <p data-i18n="docs.faq.a5">Yes. DevNexus offers everything XAMPP and Laragon provide — plus per-site PHP isolation, multiple simultaneous PHP versions, automatic HTTPS, and a built-in AI/MCP server — while remaining fully open source and cross-platform.</p>
+
+        <h3 data-i18n="docs.faq.q6">Can I run multiple PHP versions at the same time?</h3>
+        <p data-i18n="docs.faq.a6">Yes. Each site gets its own PHP-FPM pool, so one project can run PHP 8.1 while another runs PHP 8.4, simultaneously, with zero conflicts.</p>
+
+        <h3 data-i18n="docs.faq.q7">Does DevNexus work with AI coding assistants like Claude Code?</h3>
+        <p data-i18n="docs.faq.a7">Yes. DevNexus includes a built-in MCP server with 17 tools and auto-setup for Claude Code, Claude Desktop, Cursor, Windsurf, Zed, VS Code, and JetBrains IDEs.</p>
+
+        <h3 data-i18n="docs.faq.q8">Does DevNexus support Node.js projects alongside PHP?</h3>
+        <p data-i18n="docs.faq.a8">Yes. DevNexus auto-detects Next.js, Vue, and Vite projects, manages their dev servers, and reverse-proxies them through Caddy on *.test domains with hot reload.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="navbar-logo" style="margin-bottom:1rem;">
+            <img src="/assets/images/logo-128.png" alt="DevNexus Logo" width="28" height="28" />
+            <span>DevNexus</span>
+          </a>
+          <p data-i18n="footer.desc">The all-in-one local PHP/Laravel development environment manager. Built with ❤️ by smartTeam</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.product">Product</h4>
+          <ul>
+            <li><a href="/" data-i18n="footer.links.home">Home</a></li>
+            <li><a href="/docs/" data-i18n="footer.links.docs">Documentation</a></li>
+            <li><a href="/download/" data-i18n="footer.links.download">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="/founders/" data-i18n="footer.links.founders">About Us</a></li>
+            <li><a href="https://github.com/DevXNexusPro/DevNexus" target="_blank" rel="noopener" data-i18n="footer.links.github">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/company/thesmart-team/" target="_blank" rel="noopener" data-i18n="footer.links.linkedin">LinkedIn</a></li>
+            <li><a href="https://www.smart.sd" target="_blank" rel="noopener" data-i18n="footer.links.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <ul>
+            <li><a href="https://github.com/DevXNexusPro/DevNexus/releases" target="_blank" rel="noopener" data-i18n="footer.links.releases">Releases</a></li>
+            <li><a href="https://github.com/DevXNexusPro/DevNexus" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 smartTeam. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

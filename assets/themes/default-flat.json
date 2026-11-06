@@ -1,0 +1,127 @@
+{
+  "name": "Flat UI",
+  "description": "A bold, reductive flat design system with zero artifice. Color-blocked sections, geometric purity, and typographic hierarchy.",
+  "version": "1.0.0",
+  "paradigm": "flat",
+  "colors": {
+    "background": "#F4F6F8",
+    "foreground": "#1F2933",
+    "primary": "#4F46E5",
+    "primary-foreground": "#FFFFFF",
+    "secondary": "#0D9488",
+    "secondary-foreground": "#FFFFFF",
+    "muted": "#ECEFF3",
+    "muted-foreground": "#5C6773",
+    "accent": "#D97706",
+    "accent-foreground": "#FFFFFF",
+    "destructive": "#DC2626",
+    "destructive-foreground": "#FFFFFF",
+    "border": "#DDE2E8",
+    "input": "#CFD6DE",
+    "ring": "#4F46E5",
+    "card": "#FFFFFF",
+    "card-foreground": "#1F2933",
+    "popover": "#FFFFFF",
+    "popover-foreground": "#1F2933",
+    "bg-page": "#F4F6F8",
+    "bg-sidebar": "#EDF0F4",
+    "surface-1": "#FFFFFF",
+    "surface-2": "#EEF1F5",
+    "border-strong": "#C6CFD9",
+    "accent-blue": "#4F46E5",
+    "accent-green": "#0D9488",
+    "accent-red": "#DC2626",
+    "accent-amber": "#D97706"
+  },
+  "colorsDark": {
+    "background": "#0B1120",
+    "foreground": "#F1F5F9",
+    "primary": "#818CF8",
+    "primary-foreground": "#0B1120",
+    "secondary": "#2DD4BF",
+    "secondary-foreground": "#0B1120",
+    "muted": "#1A2434",
+    "muted-foreground": "#9AA6B5",
+    "accent": "#FBBF24",
+    "accent-foreground": "#0B1120",
+    "destructive": "#FB7185",
+    "destructive-foreground": "#0B1120",
+    "border": "#263244",
+    "input": "#263244",
+    "ring": "#818CF8",
+    "card": "#121A29",
+    "card-foreground": "#F1F5F9",
+    "popover": "#121A29",
+    "popover-foreground": "#F1F5F9",
+    "bg-page": "#0B1120",
+    "bg-sidebar": "#0D1422",
+    "surface-1": "#121A29",
+    "surface-2": "#1A2434",
+    "border-strong": "#33405A",
+    "accent-blue": "#818CF8",
+    "accent-green": "#2DD4BF",
+    "accent-red": "#FB7185",
+    "accent-amber": "#FBBF24"
+  },
+  "typography": {
+    "family": "'Outfit', sans-serif",
+    "googleFont": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap",
+    "heading": {
+      "weight": 800,
+      "letterSpacing": "-0.02em",
+      "transform": "none"
+    },
+    "label": {
+      "weight": 600,
+      "letterSpacing": "0.05em",
+      "transform": "uppercase"
+    },
+    "sizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    }
+  },
+  "effects": {
+    "radius": "0.5rem",
+    "radiusLg": "0.75rem",
+    "radiusMd": "0.375rem",
+    "radiusSm": "0.25rem",
+    "borderWidth": "1px",
+    "shadow": "none",
+    "glassEffect": {
+      "enabled": false,
+      "blur": "0px",
+      "opacity": "1"
+    },
+    "hoverScale": "1",
+    "cardHoverScale": "1",
+    "transition": "all 0.2s ease-out"
+  },
+  "layout": {
+    "sidebar": {
+      "position": "left",
+      "width": "15rem",
+      "collapsedWidth": "4.5rem"
+    },
+    "header": {
+      "position": "fixed",
+      "height": "3rem",
+      "borderBottom": true
+    },
+    "content": {
+      "maxWidth": "none",
+      "padding": "1.25rem"
+    },
+    "shell": {
+      "backgroundDecoration": false,
+      "glassPanels": false
+    }
+  }
+}

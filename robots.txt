@@ -1,0 +1,7 @@
+# DevNexus — Robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://nexus.smart.sd/sitemap.xml
+
+# Disallow admin/staging paths if any
+# Disallow: /admin/

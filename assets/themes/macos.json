@@ -1,0 +1,126 @@
+{
+  "name": "macOS",
+  "description": "Native Big Sur / Sonoma look — SF Pro typography, system blue, translucent chrome and soft layered shadows.",
+  "version": "1.0.0",
+  "paradigm": "macos",
+  "colors": {
+    "background": "#F0F0F4",
+    "foreground": "#3A3A3C",
+    "primary": "#007AFF",
+    "primary-foreground": "#FFFFFF",
+    "secondary": "#0A84FF",
+    "secondary-foreground": "#FFFFFF",
+    "muted": "#F2F2F5",
+    "muted-foreground": "#6E6E73",
+    "accent": "#0A84FF",
+    "accent-foreground": "#FFFFFF",
+    "destructive": "#FF3B30",
+    "destructive-foreground": "#FFFFFF",
+    "border": "#D6D6DC",
+    "input": "#C8C8D0",
+    "ring": "#007AFF",
+    "card": "#FCFCFE",
+    "card-foreground": "#3A3A3C",
+    "popover": "#FCFCFE",
+    "popover-foreground": "#3A3A3C",
+    "bg-page": "#F0F0F4",
+    "bg-sidebar": "#E6E6EC",
+    "surface-1": "#FCFCFE",
+    "surface-2": "#EFEFF4",
+    "border-strong": "#C3C3CC",
+    "accent-blue": "#007AFF",
+    "accent-green": "#34C759",
+    "accent-red": "#FF3B30",
+    "accent-amber": "#FF9500"
+  },
+  "colorsDark": {
+    "background": "#1E1E1E",
+    "foreground": "#F5F5F7",
+    "primary": "#0A84FF",
+    "primary-foreground": "#FFFFFF",
+    "secondary": "#0A84FF",
+    "secondary-foreground": "#FFFFFF",
+    "muted": "#2C2C2E",
+    "muted-foreground": "#98989D",
+    "accent": "#0A84FF",
+    "accent-foreground": "#FFFFFF",
+    "destructive": "#FF453A",
+    "destructive-foreground": "#FFFFFF",
+    "border": "#3A3A3C",
+    "input": "#48484A",
+    "ring": "#0A84FF",
+    "card": "#262626",
+    "card-foreground": "#F5F5F7",
+    "popover": "#2C2C2E",
+    "popover-foreground": "#F5F5F7",
+    "bg-page": "#1E1E1E",
+    "bg-sidebar": "#262626",
+    "surface-1": "#262626",
+    "surface-2": "#2C2C2E",
+    "border-strong": "#48484A",
+    "accent-blue": "#0A84FF",
+    "accent-green": "#30D158",
+    "accent-red": "#FF453A",
+    "accent-amber": "#FF9F0A"
+  },
+  "typography": {
+    "family": "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', sans-serif",
+    "heading": {
+      "weight": 700,
+      "letterSpacing": "-0.01em",
+      "transform": "none"
+    },
+    "label": {
+      "weight": 600,
+      "letterSpacing": "0.02em",
+      "transform": "none"
+    },
+    "sizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    }
+  },
+  "effects": {
+    "radius": "0.625rem",
+    "radiusLg": "0.75rem",
+    "radiusMd": "0.5rem",
+    "radiusSm": "0.25rem",
+    "borderWidth": "1px",
+    "shadow": "material",
+    "glassEffect": {
+      "enabled": true,
+      "blur": "20px",
+      "opacity": "0.72"
+    },
+    "hoverScale": "1.02",
+    "cardHoverScale": "1.005",
+    "transition": "all 0.18s ease-out"
+  },
+  "layout": {
+    "sidebar": {
+      "position": "left",
+      "width": "15rem",
+      "collapsedWidth": "4.5rem"
+    },
+    "header": {
+      "position": "fixed",
+      "height": "3rem",
+      "borderBottom": true
+    },
+    "content": {
+      "maxWidth": "none",
+      "padding": "1.25rem"
+    },
+    "shell": {
+      "backgroundDecoration": true,
+      "glassPanels": true
+    }
+  }
+}
